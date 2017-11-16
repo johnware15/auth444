@@ -1,10 +1,8 @@
 DROP TABLE IF EXISTS contacts;
 CREATE TABLE contacts (
   id serial primary key,
-  first_name varchar(255) NOT NULL,
-  last_name varchar(255) NOT NULL,
-  phone_number varchar(255),
-  email varchar(255)
+  name varchar(255) NOT NULL,
+  phone varchar(255)
 );
 
 DROP TABLE IF EXISTS users;

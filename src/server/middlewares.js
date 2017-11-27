@@ -16,4 +16,12 @@ const setDefaultResponseLocals = (request, response, next) => {
   next()
 }
 
-module.exports = { errorHandler, logErrors, notFoundHandler, setDefaultResponseLocals };
+const userAccess = app.get('/login', function(request, response, next) {
+  if(request.session.user && request.session.role === 'admin') {
+    response.status(302).redirect('/admin')
+  } else if(request.session.user && request.session.role === 'regular') {
+    response.status(302).redirect('/regular')
+  }
+})
+
+module.exports = { errorHandler, logErrors, notFoundHandler, setDefaultResponseLocals, userAccess };

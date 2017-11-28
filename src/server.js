@@ -16,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(methodOverride('_method'))
 
 app.use(middlewares.setDefaultResponseLocals)
+app.use(middlewares.userAccess)
 
 app.use('/', routes)
 
